@@ -1,0 +1,11 @@
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile('index');
+}
+
+function getSEO(website) {
+  var apiKey = 'YOUR_SEO_API_KEY';
+  var url = 'https://api.seo.com/performance?website=' + website + '&apiKey=' + apiKey;
+  var response = UrlFetchApp.fetch(url);
+  var json = JSON.parse(response.getContentText());
+  return '<p>Page Rank: ' + json.pageRank + '</p><p>Backlinks: ' + json.backlinks + '</p><p>Organic Traffic: ' + json.organicTraffic + '</p>';
+}
