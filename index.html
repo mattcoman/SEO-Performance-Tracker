@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SEO Performance Tracker</title>
+</head>
+<body>
+  <h1>SEO Performance Tracker</h1>
+  <input type="text" id="website" placeholder="Enter website URL">
+  <button onclick="getSEO()">Get SEO</button>
+  <div id="seo"></div>
+
+  <script>
+    function getSEO() {
+      var website = document.getElementById('website').value;
+      google.script.run.withSuccessHandler(displaySEO).getSEO(website);
+    }
+
+    function displaySEO(data) {
+      document.getElementById('seo').innerHTML = data;
+    }
+  </script>
+</body>
+</html>
